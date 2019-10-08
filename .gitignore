@@ -1,0 +1,6 @@
+*.png
+*.npy
+*.jpg
+*.tif
+*.ipynb
+./Player_Data/*
