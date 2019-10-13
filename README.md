@@ -10,3 +10,6 @@ are taken by centers?)
 
 Proj 3: This script does a PCA analysis of NBA players per season. Two axis for defense and offense are made which consists of
 various player skill metrics. 
+
+
+This repo used data from: https://www.kaggle.com/drgilermo/nba-players-stats
