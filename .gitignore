@@ -4,3 +4,6 @@
 *.tif
 *.ipynb
 ./Player_Data/*
+./Proj1_Height_Weight/*
+./Proj2_PlayerAnalysis/*
+./Proj3_PCAVisualization/*
