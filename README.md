@@ -15,4 +15,7 @@ PCAVisualization.py: Often it is very difficult to measure how important a playe
 Results: Players that perform better are often outliers in this PCA plot. How much of an outlier a player is can often tell us how important he is to the team. 
 
 
-This repo used data from: https://www.kaggle.com/drgilermo/nba-players-stats
+Useful Scripts:
+ExtractSeasonData.py/ExtractPlayerData.py - Creates a pkl file with season/player stats from basketball-reference that are to be used by scripts (or updates them)
+
+This repo scrapes data from: https://www.basketball-reference.com

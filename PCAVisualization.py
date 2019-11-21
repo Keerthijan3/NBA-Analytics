@@ -19,8 +19,8 @@ from PIL import Image
 import sys
 
 
-def CreatePCA(year=2017, targets=[], mingames=60, filename=None):
-    seasons = pd.read_csv('Data/Seasons_Stats.csv')
+def CreatePCA(year=2018, targets=[], mingames=60, filename=None):
+    seasons = pd.read_pickle("./Data/Seasons_Stats.pkl")
     season = seasons[seasons['Year'] == year]
     df = season[['Player', 'Pos', 'G', 'GS', 'MP', 'ORB', 'DRB', 'AST', 'STL', 'BLK', 'PTS']]
     df['PPG'] = df['PTS']/df['G']
@@ -68,9 +68,9 @@ def CreatePCA(year=2017, targets=[], mingames=60, filename=None):
         plt.savefig(filename+'.png')
     return dfog
 
-
-year = int(sys.argv[1])
-filename = sys.argv[3]
-players = sys.argv[2].strip('[]').split(',')
-players = [players[0]]+[player[1:] for player in players[1:]]
-df = CreatePCA(year, players, filename=filename)
+if __name__ == "__main__":
+    year = int(sys.argv[1])
+    filename = sys.argv[3]
+    players = sys.argv[2].strip('[]').split(',')
+    players = [players[0]]+[player[1:] for player in players[1:]]
+    df = CreatePCA(year, players, filename=filename)

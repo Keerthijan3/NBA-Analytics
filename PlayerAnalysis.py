@@ -35,12 +35,12 @@ def Plot(x, y, title, filename, ylabel):
     plt.close()
 
 
-players = pd.read_csv('Data/Players.csv')
-seasons = pd.read_csv('Data/Seasons_Stats.csv')
+players = pd.read_pickle('Data/Players.pkl')
+seasons = pd.read_pickle('Data/Seasons_Stats.pkl')
 
 seasons = seasons[seasons['Year'] > 1979]
-seasons_centers = seasons[seasons['Pos'] == pos]
-df = seasons_centers[['Year', 'Player', 'G', 'USG%', '3P', '3PA', '2P', '2PA', 'FT', 'FTA', 'ORB', 'DRB', 'AST', 'STL', 'BLK', 'PTS']]
+seasons = seasons[seasons['Pos'] == pos]
+df = seasons[['Year', 'Player', 'G', '3P', '3PA', '2P', '2PA', 'FT', 'FTA', 'ORB', 'DRB', 'AST', 'STL', 'BLK', 'PTS']]
 threepoint = []
 threepointa = []
 twopoint = []
@@ -53,7 +53,6 @@ ast = []
 stl = []
 blk = []
 pts = []
-usg = []
 years = []
 for year in range(1980, 2018):
     dfyear = df[df['Year'] == year]
@@ -69,7 +68,6 @@ for year in range(1980, 2018):
     stl.append(np.mean(dfyear['STL'].values/dfyear['G'].values))
     blk.append(np.mean(dfyear['BLK'].values/dfyear['G'].values))
     pts.append(np.mean(dfyear['PTS'].values/dfyear['G'].values))
-    usg.append(np.mean(dfyear['USG%'].values))
     years.append(year)
 
 Plot(years, threepoint, 'Three Pointers per Game for ' + pos, pos + 'threep.png', 'Pts/game')

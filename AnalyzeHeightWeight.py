@@ -31,8 +31,8 @@ def Plot(x, y, title, filename, ylabel):
     plt.close()
 
 
-players = pd.read_csv('Data/Players.csv')
-seasons = pd.read_csv('Data/Seasons_Stats.csv')
+players = pd.read_pickle('Data/Players.pkl')
+seasons = pd.read_pickle('Data/Seasons_Stats.pkl')
 
 try:
     pos = sys.argv[1]
@@ -67,7 +67,7 @@ Plot(
     pos+'heightstdvsyear.png', 'Height (cm)'
 )
 Plot(
-    year, stddevw, 'Weight Std. Devi. vs Year for NBA Players' + naming,
+    year, stddevw, 'Weight Std. Dev. vs Year for NBA Players' + naming,
     pos + 'weightstdvsyear.png', 'Weight (kg)'
 )
 Plot(
